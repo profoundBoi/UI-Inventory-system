@@ -14,12 +14,14 @@ public class BuyButtonManager : MonoBehaviour
     public GameObject GreenBottle;
     public GameObject BShield;
     public GameObject BlueBottle;
-   
+
     public Transform[] StorageSlot;
 
     public Vector3 sizes = new Vector3(70f, 70f, 0);
 
     private int Lastpoint = -1;
+
+
 
     public void Buy1()
     {
@@ -42,7 +44,7 @@ public class BuyButtonManager : MonoBehaviour
                 {
 
                     GameObject CloneObject = Instantiate(RShield, space.position, Quaternion.identity, StorageSlot[i].transform);
-                   // CloneObject.transform.position = new Vector3(space.position.x, space.position.y - 0.3f, 0);
+                    // CloneObject.transform.position = new Vector3(space.position.x, space.position.y - 0.3f, 0);
                     CloneObject.transform.position += new Vector3(0, 0.1f, 0); // Adjust position as needed
 
 

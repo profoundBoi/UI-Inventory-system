@@ -91,49 +91,49 @@ public class MoneyManager : MonoBehaviour
             UpdateMoneyText();
         }
     }
-    public void ChocolateBarSell()
+    public void RShieldSell()
     {
         money += RShieldPrice;
         UpdateMoneyText();
     }
 
-    public void GummyBearSell()
+    public void RedBottleSell()
     {
         money += RedBottlePrice;
         UpdateMoneyText();
     }
 
-    public void DonutSell()
+    public void PShieldSell()
     {
         money += PShieldPrice;
         UpdateMoneyText();
     }
 
-    public void LollipopSell()
+    public void PinkBottleSell()
     {
         money += PinkBottlePrice;
         UpdateMoneyText();
     }
 
-    public void CandyCaneSell()
+    public void GShieldSell()
     {
         money += GShieldPrice;
         UpdateMoneyText();
     }
 
-    public void StrawberrySell()
+    public void GreenBottleSell()
     {
         money += GreenBottlePrice;
         UpdateMoneyText();
     }
 
-    public void GingerBreadSell()
+    public void BShieldSell()
     {
         money += BShieldPrice;
         UpdateMoneyText();
     }
 
-    public void CakePopSell()
+    public void BlueBottleSell()
     {
         money += BlueBottlePrice;
         UpdateMoneyText();
