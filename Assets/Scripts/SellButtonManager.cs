@@ -39,7 +39,7 @@ public class SellButtonManager : MonoBehaviour
                 moneySystem.money += slot.transform.GetComponentInChildren<Item>().price;
                 //moneySystem.money += RShieldPrice;
                 moneySystem.UpdateMoneyText();
-                Destroy(slot.transform.GetChild(0).gameObject);
+                Destroy(slot.transform.GetChild(0).GetChild(0).gameObject);
             }
             else
             {

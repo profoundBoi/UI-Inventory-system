@@ -37,10 +37,9 @@ public class BuyButtonManager : MonoBehaviour
             for (int i = startIndex; i < Slots.Length; i++)
             {
                 Transform space = Slots[i];
-
-                Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
-
-                if (colliders.Length == 0)
+                Debug.Log(i);
+              
+                if (StorageSlot[i].childCount == 0)
                 {
 
                     GameObject CloneObject = Instantiate(RShield, space.position, Quaternion.identity, StorageSlot[i].transform);
@@ -57,28 +56,9 @@ public class BuyButtonManager : MonoBehaviour
 
                     return;
                 }
+
             }
-            for (int i = 0; i < startIndex; i++)
-            {
-                Transform space = Slots[i];
 
-                Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
-
-                if (colliders.Length == 0)
-                {
-
-                    GameObject CloneObject = Instantiate(RShield, space.position, Quaternion.identity, StorageSlot[i].transform);
-                    CloneObject.transform.position = new Vector3(space.position.x, space.position.y - 0.3f, 0);
-
-                    CloneObject.transform.localScale = sizes;
-
-                    Lastpoint = i;
-
-                    moneySystem.DeductButton1();
-
-                    return;
-                }
-            }
         }
     }
 

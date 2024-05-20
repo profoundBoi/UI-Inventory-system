@@ -27,6 +27,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
+
     public void MoveObjectToNextSlot(int objectIndex)
     {
         // Assuming you have a way to get the original object based on index
@@ -55,33 +56,34 @@ public class ObjectMover : MonoBehaviour
         for (int i = startIndex; i < Slots.Length; i++)
         {
             Transform space = Slots[i];
-            Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
-
-            if (colliders.Length == 0)
+           
+            if (StorageSlot[i].childCount == 0)
             {
+
                 GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
                 cloneObject.transform.position += new Vector3(8.8f, 0.0f, 0); // Adjust position as needed
                 cloneObject.transform.localScale = new Vector3(1.05f, 1.05f, 0.5f); // Adjust scale as needed
-
-                Destroy(originalObject); // Destroy the original object
+                cloneObject.transform.parent = StorageSlot[i].transform;
+                Destroy(originalObject.GetComponentInChildren<Image>().gameObject); // Destroy the original object
 
                 lastPoint = i;
                 clonedObjects.Add(cloneObject); // Add the cloned object to the list
                 return;
             }
+  
         }
         for (int i = 0; i < startIndex; i++)
         {
             Transform space = Slots[i];
-            Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
-
-            if (colliders.Length == 0)
+            //Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
+            if (StorageSlot[i].childCount == 0)
             {
-                GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
-                cloneObject.transform.position += new Vector3(0, 0.1f, 0); // Adjust position as needed
-                cloneObject.transform.localScale = new Vector3(1.0f, 1.0f, 0.5f); // Adjust scale as needed
 
-                Destroy(originalObject); // Destroy the original object
+                GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
+                cloneObject.transform.position += new Vector3(8.8f, 0.0f, 0); // Adjust position as needed
+                cloneObject.transform.localScale = new Vector3(1.05f, 1.05f, 0.5f); // Adjust scale as needed
+                cloneObject.transform.parent = StorageSlot[i].transform;
+                Destroy(originalObject.GetComponentInChildren<Image>().gameObject); // Destroy the original object
 
                 lastPoint = i;
                 clonedObjects.Add(cloneObject); // Add the cloned object to the list
@@ -107,7 +109,8 @@ public class ObjectMover : MonoBehaviour
                 GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
                 cloneObject.transform.position += new Vector3(7.0f, 0.0f, 0); // Adjust position as needed
                 cloneObject.transform.localScale = new Vector3(1.05f, 1.05f, 0.5f); // Adjust scale as needed
-
+                Debug.Log(originalObject);
+                
                 Destroy(originalObject); // Destroy the original object
 
                 lastPoint = i;
