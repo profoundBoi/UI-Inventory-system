@@ -15,6 +15,7 @@ public class MoneyManager : MonoBehaviour
     public int GreenBottlePrice = 20;
     public int BShieldPrice = 10;
     public int BlueBottlePrice = 20;
+    public int UnlockPrice = 10;
     
     public Transform boxAboveButton;
     private void Start()
@@ -88,6 +89,15 @@ public class MoneyManager : MonoBehaviour
         if (money >= 20)
         {
             money -= BlueBottlePrice;
+            UpdateMoneyText();
+        }
+    }
+
+    public void DeductButton9()
+    {
+        if (money >= 10)
+        {
+            money -= UnlockPrice;
             UpdateMoneyText();
         }
     }

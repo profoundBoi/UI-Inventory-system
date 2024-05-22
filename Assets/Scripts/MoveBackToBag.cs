@@ -20,7 +20,7 @@ public class MoveBackToBag : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < MoveButton.Length; i--)
+        for (int i = 0; i < MoveButton.Length; i++)
         {
             int index = i; // Capture the index to avoid closure issues
             MoveButton[index].onClick.AddListener(() => MoveObjectToNextSlot(index)); // Add listener to the button
