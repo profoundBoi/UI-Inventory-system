@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Unity.VisualScripting;
 using UnityEngine.UI;
 
-public class ObjectMover : MonoBehaviour
+public class MoveBackToBag : MonoBehaviour
 {
     public Transform[] Slots; // Array of slots where objects can be placed
 
@@ -14,13 +14,13 @@ public class ObjectMover : MonoBehaviour
     private List<GameObject> clonedObjects = new List<GameObject>(); // List to track cloned objects
 
     private int lastPoint = -1;
-     public Vector3 sizes = new Vector3(70f, 70f, 0);
+    public Vector3 sizes = new Vector3(70f, 70f, 0);
 
 
 
     void Start()
     {
-        for (int i = 0; i < MoveButton.Length; i++)
+        for (int i = 0; i < MoveButton.Length; i--)
         {
             int index = i; // Capture the index to avoid closure issues
             MoveButton[index].onClick.AddListener(() => MoveObjectToNextSlot(index)); // Add listener to the button
@@ -45,7 +45,7 @@ public class ObjectMover : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public void CloneObject1(GameObject originalObject)
+    public void MoveObject1(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -56,7 +56,7 @@ public class ObjectMover : MonoBehaviour
         for (int i = startIndex; i < Slots.Length; i++)
         {
             Transform space = Slots[i];
-           
+
             if (StorageSlot[i].childCount == 0)
             {
 
@@ -70,7 +70,7 @@ public class ObjectMover : MonoBehaviour
                 clonedObjects.Add(cloneObject); // Add the cloned object to the list
                 return;
             }
-  
+
         }
         for (int i = 0; i < startIndex; i++)
         {
@@ -91,7 +91,7 @@ public class ObjectMover : MonoBehaviour
             }
         }
     }
-    public void CloneObject2(GameObject originalObject)
+    public void MoveObject2(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -110,7 +110,7 @@ public class ObjectMover : MonoBehaviour
                 cloneObject.transform.position += new Vector3(8.8f, 0.0f, 0); // Adjust position as needed
                 cloneObject.transform.localScale = new Vector3(1.05f, 1.05f, 0.5f); // Adjust scale as needed
                 Debug.Log(originalObject);
-                
+
                 Destroy(originalObject); // Destroy the original object
 
                 lastPoint = i;
@@ -137,7 +137,7 @@ public class ObjectMover : MonoBehaviour
             }
         }
     }
-    public void CloneObject3(GameObject originalObject)
+    public void MoveObject3(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -182,53 +182,7 @@ public class ObjectMover : MonoBehaviour
             }
         }
     }
-    public void CloneObject4(GameObject originalObject)
-    {
-        int startIndex = lastPoint + 1;
-        if (startIndex >= Slots.Length)
-        {
-            startIndex = 0;
-        }
-
-        for (int i = startIndex; i < Slots.Length; i++)
-        {
-            Transform space = Slots[i];
-            Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
-
-            if (colliders.Length == 0)
-            {
-                GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
-                cloneObject.transform.position += new Vector3(8.8f, 0.0f, 0); // Adjust position as needed
-                cloneObject.transform.localScale = new Vector3(1.05f, 1.05f, 0.5f); // Adjust scale as needed
-
-                Destroy(originalObject); // Destroy the original object
-
-                lastPoint = i;
-                clonedObjects.Add(cloneObject); // Add the cloned object to the list
-                return;
-            }
-        }
-        for (int i = 0; i < startIndex; i++)
-        {
-            Transform space = Slots[i];
-            Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
-
-            if (colliders.Length == 0)
-            {
-                GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
-                cloneObject.transform.position += new Vector3(0, 0.1f, 0); // Adjust position as needed
-                cloneObject.transform.localScale = new Vector3(1.0f, 1.0f, 0.5f); // Adjust scale as needed
-
-                Destroy(originalObject); // Destroy the original object
-
-                lastPoint = i;
-                clonedObjects.Add(cloneObject); // Add the cloned object to the list
-                return;
-            }
-        }
-    }
-
-    public void CloneObject5(GameObject originalObject)
+    public void MoveObject4(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -274,7 +228,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject6(GameObject originalObject)
+    public void MoveObject5(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -320,7 +274,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject7(GameObject originalObject)
+    public void MoveObject6(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -366,7 +320,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject8(GameObject originalObject)
+    public void MoveObject7(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -412,7 +366,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject9(GameObject originalObject)
+    public void MoveObject8(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -458,7 +412,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject10(GameObject originalObject)
+    public void MoveObject9(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -504,7 +458,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject11(GameObject originalObject)
+    public void MoveObject10(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -550,7 +504,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject12(GameObject originalObject)
+    public void MoveObject11(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -596,7 +550,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject13(GameObject originalObject)
+    public void MoveObject12(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -642,7 +596,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject14(GameObject originalObject)
+    public void MoveObject13(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -688,7 +642,7 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject15(GameObject originalObject)
+    public void MoveObject14(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -734,7 +688,53 @@ public class ObjectMover : MonoBehaviour
         }
     }
 
-    public void CloneObject16(GameObject originalObject)
+    public void MoveObject15(GameObject originalObject)
+    {
+        int startIndex = lastPoint + 1;
+        if (startIndex >= Slots.Length)
+        {
+            startIndex = 0;
+        }
+
+        for (int i = startIndex; i < Slots.Length; i++)
+        {
+            Transform space = Slots[i];
+            Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
+
+            if (colliders.Length == 0)
+            {
+                GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
+                cloneObject.transform.position += new Vector3(8.8f, 0.0f, 0); // Adjust position as needed
+                cloneObject.transform.localScale = new Vector3(1.05f, 1.05f, 0.5f); // Adjust scale as needed
+
+                Destroy(originalObject); // Destroy the original object
+
+                lastPoint = i;
+                clonedObjects.Add(cloneObject); // Add the cloned object to the list
+                return;
+            }
+        }
+        for (int i = 0; i < startIndex; i++)
+        {
+            Transform space = Slots[i];
+            Collider2D[] colliders = Physics2D.OverlapPointAll(space.position);
+
+            if (colliders.Length == 0)
+            {
+                GameObject cloneObject = Instantiate(originalObject, space.position, Quaternion.identity, StorageSlot[i].transform);
+                cloneObject.transform.position += new Vector3(0, 0.1f, 0); // Adjust position as needed
+                cloneObject.transform.localScale = new Vector3(1.0f, 1.0f, 0.5f); // Adjust scale as needed
+
+                Destroy(originalObject); // Destroy the original object
+
+                lastPoint = i;
+                clonedObjects.Add(cloneObject); // Add the cloned object to the list
+                return;
+            }
+        }
+    }
+
+    public void MoveObject16(GameObject originalObject)
     {
         int startIndex = lastPoint + 1;
         if (startIndex >= Slots.Length)
@@ -825,5 +825,5 @@ public class ObjectMover : MonoBehaviour
 
         lastPoint = slotIndex; // Update the last point
     }
-}
 
+}

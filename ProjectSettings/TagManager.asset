@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BuyButton
   - Button
+  - Button02
   layers:
   - Default
   - TransparentFX

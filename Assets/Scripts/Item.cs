@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     public int price;
     public int quantity;
     public Text quantityText;
-
+    
     private Button buyButton;
 
 
